@@ -48,7 +48,9 @@ dataframe <- data$data
 # Create a plot and write a piece of code that will compute the percentage of Alaskan household speaking only English for the year 2009 to 2015
 
 english_speaking <- dataframe |>
-  
+  group_by(Year) |>
+  summarize(english = speak_only_english/total) |>
+  filter(Year = 2009:2015)
 
 ```
 
